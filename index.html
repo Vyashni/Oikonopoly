@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Oikonopoly</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:300,400,500'>
+<link rel="stylesheet" href="./style.css">
+<script src="new.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<nav class="controls">
+	<a href="#" class="button" onClick="stopwatch.start();">Start the game</a>
+	<a href="#" class="button" onClick="stopwatch.stop();">End the game</a>
+</nav>
+<div class="stopwatch"></div>
+<ul class="results"></ul>
+<!-- partial -->
+<script  src="./script.js"></script>
+<div class="table">
+  <div class="msg">
+    <h1 id="player"></h1>
+	<br>
+    <h1 id="dice"></h1>
+    <h1 id="demo"></h1>
+	<br>
+    <h1 id="stat"></h1>
+    <button style="width : 100px; height : 40px;"type="button" name="button" onclick="rollDie()">Roll</button>
+  </div>
+	<div class="board">
+		<div class="center">
+			<div class="community-chest-deck">
+				<h2 class="label">Mystery</h2>
+				<div class="deck"></div>
+			</div>
+			<h1 class="title">OIKONOPOLY</h1>
+			<div class="chance-deck">
+				<h2 class="label">Tasks</h2>
+				<div class="deck"></div>
+			</div>
+		</div>
+		<div class="space corner go">
+			<div class="container">
+				<div class="instructions">Ready?</div>
+        <h3 id="sq0"></h3>
+				<div class="go-word">go</div>
+			</div>
+			<div class="arrow fa fa-long-arrow-left"></div>
+		</div>
+
+		<div class="row horizontal-row bottom-row">
+			<div class="space property">
+				<div class="container" >
+					<div class="color-bar light-blue"></div>
+					<div class="name">Free</div>
+            <h3 id="sq9"></h3>
+					<div class="price">No reward</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container" >
+					<div class="color-bar light-blue"></div>
+					<div class="name">TASK</div>
+          <h3 id="sq8"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space chance">
+				<div class="container">
+					<div class="name">Mystery</div>
+          <h3 id="sq7"></h3>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar light-blue"></div>
+					<div class="name">Stay Ethical</div>
+          <h3 id="sq6"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space railroad">
+				<div class="container">
+					<div class="name">Find me</div>
+          <h3 id="sq5"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space fee income-tax">
+				<div class="container">
+					<div class="name">TASK</div>
+          <h3 id="sq4"></h3>
+					<div class="instructions">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar dark-purple"></div>
+					<div class="name">Eco Quest</div>
+          <h3 id="sq3"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space community-chest">
+				<div class="container">
+					<div class="name">Mystery</div>
+          <h3 id="sq2"></h3>
+					<div class="instructions"></div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar dark-purple"></div>
+					<div class="name three-line-name">Treasure</div>
+          <h3 id="sq1"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="space corner jail">
+			<div class="just">LOOSE</div>
+			<div class="drawing">
+				<div class="container">
+					<div class="name">OOPS</div>
+					<div class="window">
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<i class="person fa fa-frown-o"></i>
+					</div>
+					<div class="name">...</div>
+
+				</div>
+			</div>
+      <h3 id="sq10"></h3>
+			<div class="visiting">POINTS</div>
+		</div>
+
+		<div class="row vertical-row left-row">
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar orange"></div>
+					<div class="name">Stay Ethical</div>
+          <h3 id="sq19"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar orange"></div>
+					<div class="name">Know your GK</div>
+          <h3 id="sq18"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space community-chest">
+				<div class="container">
+					<div class="name">Mystery</div>
+          <h3 id="sq17"></h3>
+					<div class="instructions"></div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar orange"></div>
+					<div class="name">Free</div>
+          <h3 id="sq16"></h3>
+					<div class="price">No reward</div>
+				</div>
+			</div>
+			<div class="space railroad">
+				<div class="container">
+					<div class="name long-name">Find me</div>
+          <h3 id="sq15"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar purple"></div>
+					<div class="name">Eco Quest</div>
+          <h3 id="sq14"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar purple"></div>
+					<div class="name">TASK</div>
+          <h3 id="sq13"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space utility electric-company">
+				<div class="container">
+					<div class="name">Know your GK</div>
+          <h3 id="sq12"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar purple"></div>
+					<div class="name">Stay Ethical</div>
+          <h3 id="sq11"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="space corner free-parking">
+			<div class="container">
+				<div class="name">Mystery</div>
+        <h3 id="sq20"></h3>
+				<div class="name">Filled with Surprises</div>
+			</div>
+		</div>
+
+		<div class="row horizontal-row top-row">
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar red"></div>
+					<div class="name">Eco Quest</div>
+          <h3 id="sq21"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space chance">
+				<div class="container">
+					<div class="name">Treasure - 100 points</div>
+          <h3 id="sq22"></h3>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar red"></div>
+					<div class="name">Free</div>
+          <h3 id="sq23"></h3>
+					<div class="price">No reward</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar red"></div>
+					<div class="name">Stay Ethical</div>
+          <h3 id="sq24"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space railroad">
+				<div class="container">
+					<div class="name">Find Me</div>
+          <h3 id="sq25"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar yellow"></div>
+					<div class="name">Test your GK</div>
+          <h3 id="sq26"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar yellow"></div>
+					<div class="name">TASK</div>
+          <h3 id="sq27"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space utility waterworks">
+				<div class="container">
+					<div class="name">Treasure</div>
+          <h3 id="sq28"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar yellow"></div>
+					<div class="name">Free</div>
+          <h3 id="sq29"></h3>
+					<div class="price">No reward</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="space corner go-to-jail">
+			<div class="container">
+				<div class="name">Free</div>
+				<div class="name">Parking</div>
+        <h3 id="sq30"></h3>
+			</div>
+		</div>
+
+		<div class="row vertical-row right-row">
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar green"></div>
+					<div class="name">TASK</div>
+          <h3 id="sq31"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar green"></div>
+          <h3 id="sq32"></h3>
+					<div class="name three-line-name">Mystery</div>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space community-chest">
+				<div class="container">
+					<div class="name">FREE</div>
+          <h3 id="sq33"></h3>
+					<div class="instructions">No rewards</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar green"></div>
+					<div class="name long-name">Eco Quest</div>
+          <h3 id="sq34"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space railroad">
+				<div class="container">
+					<div class="name">Find me</div>
+          <h3 id="sq35"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space chance">
+				<div class="container">
+					<div class="name">Mystery</div>
+          <h3 id="sq36"></h3>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar dark-blue"></div>
+					<div class="name">Test your GK</div>
+          <h3 id="sq37"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space fee luxury-tax">
+				<div class="container">
+					<div class="name">TASK</div>
+          <h3 id="sq38"></h3>
+					<div class="instructions">Reward:100 points</div>
+				</div>
+			</div>
+			<div class="space property">
+				<div class="container">
+					<div class="color-bar dark-blue"></div>
+					<div class="name">Eco Quest</div>
+          <h3 id="sq39"></h3>
+					<div class="price">Reward:100 points</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- partial -->
+
+</body>
+</html>
